@@ -7,32 +7,21 @@ def checker(arr, x, y):
         num = arr[x][n]
         if isinstance(num, int) and num not in ruleout:
             ruleout.append(num)
-            #print("rownum")
-            #print(num)
             
 #check column
     for n in range(9):
         num = arr[n][y]
         if isinstance(num, int) and num not in ruleout:
             ruleout.append(num)
-            #print("colnum")
-            #print(num)
 #check subsection
     for row in range(sub_x * 3, (sub_x + 1) * 3):
         for col in range(sub_y * 3, (sub_y + 1) * 3):
-            #print("x:" + str(row) + " y:" + str(col))
             num = arr[row][col]
             if isinstance(num, int) and num not in ruleout:
                 ruleout.append(num)
-                #print("chunknum")
-                #print(num)
         options = set(possible)-set(ruleout)
     if len(options) == 1:
         arr[x][y] = list(options)[0]
-        #print("got one!" + str(x) +str(y))
-        #print(str(sub_x) + " " + str(sub_y))
-        #print(ruleout)
-        #print(options)
 
 
 def render_board(arr):
@@ -63,13 +52,6 @@ print("input!")
 
 render_board(arr)
 
-#checker(arr, 4, 1)
-
-#print("output!")
-
-#render_board(arr)
-
-#TODO math go here
 while any("." in i for i in arr):
     for x, row in enumerate(arr):
         for y, num in enumerate(row):
